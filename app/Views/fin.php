@@ -11,7 +11,7 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>Signin Paylite Account</title>
+  <title>Signin Paylite Fin</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
@@ -38,7 +38,7 @@ height: 100vh;">
             <div class="row">
               <div class="col-md-4 col-md-12">
                 <img src="https://paylite.co.id/assets/img/about.png" alt="" width="200">
-                <span style="position: absolute;bottom: 0;right: 0;font-size: 12px;font-style:italic;">Account</span>
+                <span style="position: absolute;bottom: 0;right: 0;font-size: 12px;font-style:italic;">Fin</span>
               </div>
             </div>
           </div>

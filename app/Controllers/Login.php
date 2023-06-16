@@ -24,6 +24,26 @@ class Login extends BaseController
         $data['link'] = $this->googleclient->createAuthUrl();
         return view('login', $data);
     }
+    public function edu()
+    {
+        $data['link'] = $this->googleclient->createAuthUrl();
+        return view('edu', $data);
+    }
+    public function fin()
+    {
+        $data['link'] = $this->googleclient->createAuthUrl();
+        return view('fin', $data);
+    }
+    public function retail()
+    {
+        $data['link'] = $this->googleclient->createAuthUrl();
+        return view('retail', $data);
+    }
+    public function kios()
+    {
+        $data['link'] = $this->googleclient->createAuthUrl();
+        return view('kios', $data);
+    }
 
     public function calbackGoogle(){
         $token = $this->googleclient->fetchAccessTokenWithAuthCode($this->request->getVar('code'));
