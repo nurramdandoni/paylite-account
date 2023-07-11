@@ -1,0 +1,13 @@
+# Atur RewriteEngine
+RewriteEngine On
+
+# Atur base URL
+RewriteBase /paylite-account/public
+
+# Hilangkan tanda '#' di bawah jika Anda mengatur CodeIgniter di subfolder
+# RewriteBase /subfolder_anda
+
+# Redirect semua permintaan ke index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
