@@ -15,7 +15,7 @@ class Login extends BaseController
 
         $this->googleclient->setClientId('1058137227951-d46lp4m3iae48fsvor0f1873a1qcq0no.apps.googleusercontent.com');
         $this->googleclient->setClientSecret('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');
-        $this->googleclient->setRedirectUri('http://localhost:8080/login/calbackGoogle');
+        $this->googleclient->setRedirectUri('https://account.paylite.co.id/login/calbackGoogle');
         $this->googleclient->addScope('email');
         $this->googleclient->addScope('profile');
         // $this->googleclient->addScope('https://www.googleapis.com/auth/user.birthday.read');
