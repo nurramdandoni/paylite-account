@@ -66,6 +66,7 @@ height: 100vh;">
     </div>
   </div>
   <script>
+    const user_idCookie = '<?= $_COOKIE["user_id"]; ?>';
     // Make a GET request to an API endpoint
     fetch('https://api.paylite.co.id/produkPaylite')
     .then(response => {
@@ -103,11 +104,12 @@ height: 100vh;">
             console.log("cek");
             // Data yang akan dikirim dalam permintaan POST
             const postData = {
-                user_id: 1,
+                user_id: user_idCookie,
                 paylite_produk_id: idProduk,
             };
 
             // Objek opsi untuk konfigurasi permintaan
+            console.log(postData);
             const requestOptions = {
             method: 'POST', // Metode permintaan
             headers: {
