@@ -89,8 +89,8 @@ class Login extends BaseController
             );
             $data_json = json_encode($data);
 
-            // curl_setopt($ch, CURLOPT_URL, 'https://api.paylite.co.id/login');
-            curl_setopt($ch, CURLOPT_URL, 'http://localhost:8080/login');
+            curl_setopt($ch, CURLOPT_URL, 'https://api.paylite.co.id/login');
+            // curl_setopt($ch, CURLOPT_URL, 'http://localhost:8080/login');
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
