@@ -105,10 +105,10 @@ class Login extends BaseController
                 // echo 'Error: ' . curl_error($ch);
 
             } else {
-                echo 'Response: ' . $data["result"]->status;
+                // echo 'Response: ' . $data["result"];
                 curl_close($ch);
 
-                return view('choose_product');
+                return view('choose_product',$data);
             }
 
 

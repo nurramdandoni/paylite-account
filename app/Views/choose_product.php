@@ -45,6 +45,7 @@ height: 100vh;">
           </div>
           <div class="col-md-4"></div>
         </div> -->
+        <?= var_dump($result); ?>
         <div id="listProduk" class="row" style="margin-top:20px;">
           
           
