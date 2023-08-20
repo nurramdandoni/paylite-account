@@ -66,13 +66,13 @@ class Login extends BaseController
             $this->googleclient->setAccessToken($token['access_token']);
             $googleService = new \Google_Service_Oauth2($this->googleclient);
             $dataGoogle = $googleService->userinfo->get();
-            echo '<pre>';
-            echo var_dump($dataGoogle);
-            echo '</pre>';
-            echo $dataGoogle['name'];
+            // echo '<pre>';
+            // echo var_dump($dataGoogle);
+            // echo '</pre>';
+            // echo $dataGoogle['name'];
 
-            echo "<br>";
-            echo "<br>";
+            // echo "<br>";
+            // echo "<br>";
 
             $ch = curl_init();
             // role 1 core, role 2 agency, role 3 mitra (sekolah,toko,ruko), role 4 enduser
