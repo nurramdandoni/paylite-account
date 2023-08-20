@@ -50,11 +50,11 @@ height: 100vh;">
             $data = json_decode($result, true);
             // Mengakses key "status"
             $status = $data["status"];
-            setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/");
-            setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/");
-            setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/");
-            setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/");
-            setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/");
+            setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24));
+            setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24));
+            setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24));
+            setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24));
+            setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24));
          ?>
         <div id="listProduk" class="row" style="margin-top:20px;">
           
