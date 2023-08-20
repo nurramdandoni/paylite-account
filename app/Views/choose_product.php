@@ -139,7 +139,21 @@ height: 100vh;">
         }
     }
     function getRole(idProduk){
-        fetch('https://api.paylite.co.id/roleProduk/'+idProduk+'')
+        const postData = {
+                paylite_produk_id: idProduk,
+            };
+
+            // Objek opsi untuk konfigurasi permintaan
+            console.log(postData);
+            const requestOptions = {
+            method: 'POST', // Metode permintaan
+            headers: {
+                'Content-Type': 'application/json', // Jenis konten yang dikirim
+                // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN' // Header otorisasi jika diperlukan
+            },
+            body: JSON.stringify(postData) // Mengubah data menjadi bentuk JSON
+            };
+        fetch('https://api.paylite.co.id/roleProdukWhere')
             .then(response => {
                 if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -148,7 +162,7 @@ height: 100vh;">
             })
             .then(data => {
                 // Handle the JSON data
-                console.log(data.data);
+                console.log(data);
                 let option = `<select id="roleOption"></select>`;
                 for (const item of data.data) {
                     option += `<option value="`+item.role_produk_id+`">`+item.role_name+`</option>`;
