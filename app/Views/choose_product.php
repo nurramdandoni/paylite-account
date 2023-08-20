@@ -33,18 +33,6 @@ height: 100vh;">
       <div class="col">
       </div>
       <div class="col">
-        <!-- <div class="row" style="border-style: solid;padding: 30px;border-radius: 20px;border-color: #00afe4;">
-          <div class="col-md-4"></div>
-          <div class="col-md-4" style="display: flex;justify-content: center;">
-            <div class="row">
-              <div class="col-md-4 col-md-12">
-                <img src="https://paylite.co.id/assets/img/about.png" alt="" width="200">
-                <span style="position: absolute;bottom: 0;right: 0;font-size: 12px;font-style:italic;">Account</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4"></div>
-        </div> -->
         <?php
             // Mengubah string JSON menjadi objek/associative array
             $data = json_decode($result, true);
@@ -56,10 +44,9 @@ height: 100vh;">
             setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24));
             setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24));
          ?>
-        <div id="listProduk" class="row" style="margin-top:20px;">
-          
-          
-        </div>
+        <div id="listProduk" class="row" style="margin-top:20px;"></div>
+        <div id="listRole" class="row" style="margin-top:20px;"></div>
+        <div id="listProgram" class="row" style="margin-top:20px;"></div>
       </div>
       <div class="col">
       </div>
@@ -67,6 +54,8 @@ height: 100vh;">
   </div>
   <script>
     const user_idCookie = '<?= $_COOKIE["user_id"]; ?>';
+    $("#listRole").html("");
+    $("#listProgram").html("");
     // Make a GET request to an API endpoint
     fetch('https://api.paylite.co.id/produkPaylite')
     .then(response => {
@@ -128,6 +117,14 @@ height: 100vh;">
             .then(data => {
                 // Handle the JSON data
                 console.log(data.data.length);
+                let stat = data.data.length;
+                if(stat > 0){
+                    // redirect
+                    getRole(idProduk);
+                }else{
+                    // register subscriber
+                    getRole(idProduk);
+                }
 
             })
             .catch(error => {
@@ -140,6 +137,28 @@ height: 100vh;">
             // console.log(idProduk);
             alert("Comming Soon!");
         }
+    }
+    function getRole(idProduk){
+        fetch('https://api.paylite.co.id/roleProduk/'+idProduk+'')
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response body as JSON
+            })
+            .then(data => {
+                // Handle the JSON data
+                console.log(data.data);
+                let option = `<select id="roleOption"></select>`;
+                for (const item of data.data) {
+                    option += `<option value="`+item.role_produk_id+`">`+item.role_name+`</option>`;
+                }
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                // Handle errors here
+            });
     }
   </script>
 </body>
