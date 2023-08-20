@@ -1,37 +1,18 @@
-# Gunakan gambar PHP dengan Apache dan PHP 8.1
-FROM php:8.1-apache
+# PHP + Apache
+FROM php:8.0-apache
 
-# Aktifkan modul Apache yang diperlukan
-RUN a2enmod rewrite
+# Update OS and install common dev tools
+RUN apt-get update
+RUN apt-get install -y wget vim git zip unzip zlib1g-dev libzip-dev libpng-dev
 
-# Instal ekstensi PHP yang diperlukan
-RUN apt-get update && apt-get install -y \
-    libonig-dev \
-    libzip-dev \
-    libicu-dev \
-    zip \
-    unzip
+RUN docker-php-ext-install mysqli pdo_mysql gd zip pcntl exif 
+RUN docker-php-ext-enable mysqli
 
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-install pdo pdo_mysql mbstring zip intl
+# Enable common Apache modules
+RUN a2enmod headers expires rewrite
 
-# Setel direktori kerja di dalam kontainer
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
+# Set working directory to web files
 WORKDIR /var/www/html
-
-# Salin seluruh kode proyek ke direktori kerja di dalam kontainer
-COPY . /var/www/html
-
-# Atur izin yang sesuai untuk direktori penyimpanan log
-RUN chmod -R 777 writable
-
-# Pasang dependensi menggunakan Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer update --no-dev
-
-# Tampilkan port yang akan digunakan oleh kontainer
-EXPOSE 8080
-
-# Perintah untuk menjalankan server Apache dan CodeIgniter
-CMD ["apache2-foreground"]
-CMD ["php -v"]
-CMD ["php", "spark", "serve"]
