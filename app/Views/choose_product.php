@@ -40,6 +40,7 @@
     </div>
   </div>
   <script>
+    const user_idCookie = '<?= $_COOKIE["user_id"]; ?>';
     $("#listRole").html("");
     $("#listProgram").html("");
     // Make a GET request to an API endpoint
@@ -73,6 +74,75 @@
         console.error('Fetch error:', error);
         // Handle errors here
     });
+
+    function getPayliteProdukId(idProduk){
+        if(idProduk==1){
+
+            console.log("cek");
+            // Data yang akan dikirim dalam permintaan POST
+            const postData = {
+                user_id: user_idCookie,
+                paylite_produk_id: idProduk,
+            };
+
+            // Objek opsi untuk konfigurasi permintaan
+            console.log(postData);
+            const requestOptions = {
+            method: 'POST', // Metode permintaan
+            headers: {
+                'Content-Type': 'application/json', // Jenis konten yang dikirim
+                // 'Authorization': 'Bearer YOUR_ACCESS_TOKEN' // Header otorisasi jika diperlukan
+            },
+            body: JSON.stringify(postData) // Mengubah data menjadi bentuk JSON
+            };
+            fetch('https://api.paylite.co.id/subscriberWhere',requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                throw new Error('Network response was not ok');
+                }
+                return response.json(); // Parse the response body as JSON
+            })
+            .then(data => {
+                // Handle the JSON data
+                console.log(data.data.length);
+                let stat = data.data.length;
+                if(stat > 0){
+                    // set satatus
+                    <?php
+                    $cookieName = "statusProduk";
+                    $cookieValue = "registered";
+                    $cookieExpiration = time() + (60 * 60 * 24); // Contoh: kadaluarsa setelah 24 jam
+                    $cookiePath = "/";
+                    $cookieDomain = ".paylite.co.id";
+
+                    echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomain';";
+                    ?>
+                    // redirect
+                    getRole(idProduk);
+                }else{
+                    // register subscriber
+                    getRole(idProduk);
+                }
+
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                // Handle errors here
+            });
+
+        }else{
+
+            // console.log(idProduk);
+            alert("Comming Soon!");
+        }
+    }
+    
+    function getRole(idProduk){
+        if(idProduk == 1){
+            // Redirect ke halaman tujuan
+            window.location.href = "https://edu.paylite.co.id/register";
+        }
+    }
   </script>
 </body>
 </html>
