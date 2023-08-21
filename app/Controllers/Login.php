@@ -121,7 +121,7 @@ class Login extends BaseController
                 setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 
-                return $this->indexC();
+                return $this->response->redirect('https://account.paylite.co.id/loginC');
             }
 
 
