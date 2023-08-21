@@ -106,7 +106,6 @@ class Login extends BaseController
 
             } else {
                 echo 'Response: ' . $data["result"];
-                return $this->indexC();
                 // $status = $data["status"];
                 setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
@@ -114,8 +113,9 @@ class Login extends BaseController
                 // setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
-
+                
                 // return view('choose_product');
+                return $this->indexC();
             }
 
 
