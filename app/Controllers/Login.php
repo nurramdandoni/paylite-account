@@ -121,12 +121,12 @@ class Login extends BaseController
                 setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
 
-                setcookie("user_id",$dataS["data"]["user_id"],time() + (60 * 60 * 24),"/", "localhost");
-                setcookie("username",$dataS["data"]["username"],time() + (60 * 60 * 24),"/", "localhost");
-                setcookie("profile_id",$dataS["data"]["profile_id"],time() + (60 * 60 * 24),"/", "localhost");
-                setcookie("role",$dataS["data"]["role"],time() + (60 * 60 * 24),"/", "localhost");
-                setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", "localhost");
-                setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", "localhost");
+                setcookie("user_id",$dataS["data"]["user_id"],time() + (60 * 60 * 24),"/", "localhost:8080");
+                setcookie("username",$dataS["data"]["username"],time() + (60 * 60 * 24),"/", "localhost:8080");
+                setcookie("profile_id",$dataS["data"]["profile_id"],time() + (60 * 60 * 24),"/", "localhost:8080");
+                setcookie("role",$dataS["data"]["role"],time() + (60 * 60 * 24),"/", "localhost:8080");
+                setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", "localhost:8080");
+                setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", "localhost:8080");
                 
                 return $this->response->redirect('https://account.paylite.co.id/loginC');
             }

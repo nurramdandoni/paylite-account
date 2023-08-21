@@ -114,7 +114,7 @@
                     $cookieExpiration = time() + (60 * 60 * 24); // Contoh: kadaluarsa setelah 24 jam
                     $cookiePath = "/";
                     $cookieDomain = ".paylite.co.id";
-                    $cookieDomainLocal = "localhost";
+                    $cookieDomainLocal = "localhost:8080";
 
                     echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomain';";
                     echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomainLocal';";
