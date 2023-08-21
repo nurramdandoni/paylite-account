@@ -109,11 +109,11 @@ class Login extends BaseController
                 // echo 'Response: ' . $data;
                 // echo 'Response: ' . $dataS["status"];
                 // $status = $data["status"];
-                setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-                setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-                setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-                setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-                setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("user_id",$dataS["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("username",$dataS["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("profile_id",$dataS["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("role",$dataS["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 
                 // return view('choose_product');
