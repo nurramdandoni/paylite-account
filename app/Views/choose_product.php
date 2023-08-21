@@ -114,8 +114,10 @@
                     $cookieExpiration = time() + (60 * 60 * 24); // Contoh: kadaluarsa setelah 24 jam
                     $cookiePath = "/";
                     $cookieDomain = ".paylite.co.id";
+                    $cookieDomainLocal = "localhost";
 
                     echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomain';";
+                    echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomainLocal';";
                     ?>
                     // redirect
                     getRole(idProduk);
@@ -136,7 +138,7 @@
             alert("Comming Soon!");
         }
     }
-    
+
     function getRole(idProduk){
         if(idProduk == 1){
             // Redirect ke halaman tujuan
