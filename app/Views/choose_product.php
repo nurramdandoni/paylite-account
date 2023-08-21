@@ -121,10 +121,10 @@ height: 100vh;">
                 let stat = data.data.length;
                 if(stat > 0){
                     // redirect
-                    getRole(idProduk);
+                    // getRole(idProduk);
                 }else{
                     // register subscriber
-                    getRole(idProduk);
+                    // getRole(idProduk);
                 }
 
             })
