@@ -96,7 +96,7 @@ class Login extends BaseController
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-            $data["result"] = curl_exec($ch);
+            $data = curl_exec($ch);
 
             curl_close($ch);
             if (curl_errno($ch)) {
@@ -108,7 +108,7 @@ class Login extends BaseController
                 echo 'Response: ' . $data["result"];
                 return $this->indexC();
                 // $status = $data["status"];
-                // setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
