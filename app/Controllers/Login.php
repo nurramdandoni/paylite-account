@@ -35,7 +35,12 @@ class Login extends BaseController
     }
     public function indexC()
     {
-        return view('choose_product');
+        if(isset($_COOKIE['user_id'])){
+            return view('choose_product');
+        }else{
+            return $this->index();
+
+        }
     }
     public function edu()
     {
