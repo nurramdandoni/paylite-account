@@ -35,15 +35,15 @@ height: 100vh;">
       <div class="col">
         <?php
             // Mengubah string JSON menjadi objek/associative array
-            $data = json_decode($result, true);
+            // $data = json_decode($result, true);
             // Mengakses key "status"
-            $status = $data["status"];
-            setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-            setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-            setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-            setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-            setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
-            setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // $status = $data["status"];
+            // setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+            // setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
          ?>
         <div id="listProduk" class="row" style="margin-top:20px;"></div>
         <div id="listRole" class="row" style="margin-top:20px;"></div>

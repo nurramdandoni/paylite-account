@@ -98,17 +98,23 @@ class Login extends BaseController
 
             $data["result"] = curl_exec($ch);
 
+            curl_close($ch);
             if (curl_errno($ch)) {
-                curl_close($ch);
                 echo "<script>alert('Ada Kesalahan dalam Sambungan, silahkan ulangi kembali');</script>";
                 return $this->index();
                 // echo 'Error: ' . curl_error($ch);
 
             } else {
                 // echo 'Response: ' . $data["result"];
-                curl_close($ch);
+                // $status = $data["status"];
+                // setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("token",$data["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
 
-                return view('choose_product',$data);
+                return view('choose_product');
             }
 
 
