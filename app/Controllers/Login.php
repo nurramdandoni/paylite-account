@@ -105,9 +105,9 @@ class Login extends BaseController
                 // echo 'Error: ' . curl_error($ch);
 
             } else {
-                echo 'Response: ' . $data["result"];
+                echo 'Response: ' . $data;
                 // $status = $data["status"];
-                setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
+                // setcookie("user_id",$data["data"]["user_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("username",$data["data"]["username"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("profile_id",$data["data"]["profile_id"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 // setcookie("role",$data["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
