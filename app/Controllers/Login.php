@@ -121,13 +121,7 @@ class Login extends BaseController
                 setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 
-                // return view('choose_product');
-                if(isset($_COOKIE['user_id'])){
-                    return $this->indexC();
-                }else{
-                    return $this->index();
-
-                }
+                return $this->indexC();
             }
 
 
