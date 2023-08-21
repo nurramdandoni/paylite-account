@@ -120,11 +120,21 @@ height: 100vh;">
                 console.log(data.data.length);
                 let stat = data.data.length;
                 if(stat > 0){
+                    // set satatus
+                    <?php
+                    $cookieName = "statusProduk";
+                    $cookieValue = "registered";
+                    $cookieExpiration = time() + (60 * 60 * 24); // Contoh: kadaluarsa setelah 24 jam
+                    $cookiePath = "/";
+                    $cookieDomain = ".paylite.co.id";
+
+                    echo "document.cookie = '$cookieName=$cookieValue; expires=$cookieExpiration; path=$cookiePath; domain=$cookieDomain';";
+                    ?>
                     // redirect
-                    // getRole(idProduk);
+                    getRole(idProduk);
                 }else{
                     // register subscriber
-                    // getRole(idProduk);
+                    getRole(idProduk);
                 }
 
             })
