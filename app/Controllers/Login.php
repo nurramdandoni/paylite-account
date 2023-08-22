@@ -40,20 +40,20 @@ class Login extends BaseController
         $cookieDomain = '.edu.paylite.co.id'; // Atur domain cookie
 
         // Hapus cookie dengan mengatur waktu kedaluwarsa ke masa lalu
-        setcookie('role_produk_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('subscriber_status_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('status_pay', '', time() - 3600, '/', $cookieDomain);
-        setcookie('program_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('end_subscribe', '', time() - 3600, '/', $cookieDomain);
-        setcookie('subscriber_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('lembaga_pendidikan_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('role_produk_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('subscriber_status_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('status_pay', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('program_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('end_subscribe', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('subscriber_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('lembaga_pendidikan_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
 
-        setcookie('user_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('username', '', time() - 3600, '/', $cookieDomain);
-        setcookie('profile_id', '', time() - 3600, '/', $cookieDomain);
-        setcookie('role', '', time() - 3600, '/', $cookieDomain);
-        setcookie('token', '', time() - 3600, '/', $cookieDomain);
-        setcookie('statusProduk', '', time() - 3600, '/', $cookieDomain);
+        setcookie('user_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('username', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('profile_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('role', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('token', '', time() - (60 * 60 * 24), '/', $cookieDomain);
+        setcookie('statusProduk', '', time() - (60 * 60 * 24), '/', $cookieDomain);
         return true;
     }
     public function indexC()
