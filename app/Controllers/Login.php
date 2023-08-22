@@ -31,10 +31,11 @@ class Login extends BaseController
     public function index()
     {
         $log = $this->logout();
-        if($log){
-            $data['link'] = $this->googleclient->createAuthUrl();
-            return view('login', $data);
-        }
+        echo var_dump($log);
+        // if($log){
+        //     $data['link'] = $this->googleclient->createAuthUrl();
+        //     return view('login', $data);
+        // }
     }
     public function logout(){
         $cookieDomain = '.edu.paylite.co.id'; // Atur domain cookie
