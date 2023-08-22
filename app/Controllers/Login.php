@@ -31,14 +31,14 @@ class Login extends BaseController
     public function index()
     {
         $log = $this->logout();
-        echo var_dump($log);
-        // if($log){
-        //     $data['link'] = $this->googleclient->createAuthUrl();
-        //     return view('login', $data);
-        // }
+        // echo var_dump($log);
+        if($log){
+            $data['link'] = $this->googleclient->createAuthUrl();
+            return view('login', $data);
+        }
     }
     public function logout(){
-        $cookieDomain = '.edu.paylite.co.id'; // Atur domain cookie
+        $cookieDomain = '.paylite.co.id'; // Atur domain cookie
 
         // Hapus cookie dengan mengatur waktu kedaluwarsa ke masa lalu
         setcookie('role_produk_id', '', time() - (60 * 60 * 24), '/', $cookieDomain);
