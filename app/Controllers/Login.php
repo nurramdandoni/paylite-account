@@ -30,8 +30,31 @@ class Login extends BaseController
     }
     public function index()
     {
-        $data['link'] = $this->googleclient->createAuthUrl();
-        return view('login', $data);
+        $log = $this->logout();
+        if($log){
+            $data['link'] = $this->googleclient->createAuthUrl();
+            return view('login', $data);
+        }
+    }
+    public function logout(){
+        $cookieDomain = '.edu.paylite.co.id'; // Atur domain cookie
+
+        // Hapus cookie dengan mengatur waktu kedaluwarsa ke masa lalu
+        setcookie('role_produk_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('subscriber_status_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('status_pay', '', time() - 3600, '/', $cookieDomain);
+        setcookie('program_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('end_subscribe', '', time() - 3600, '/', $cookieDomain);
+        setcookie('subscriber_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('lembaga_pendidikan_id', '', time() - 3600, '/', $cookieDomain);
+
+        setcookie('user_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('username', '', time() - 3600, '/', $cookieDomain);
+        setcookie('profile_id', '', time() - 3600, '/', $cookieDomain);
+        setcookie('role', '', time() - 3600, '/', $cookieDomain);
+        setcookie('token', '', time() - 3600, '/', $cookieDomain);
+        setcookie('statusProduk', '', time() - 3600, '/', $cookieDomain);
+        return true;
     }
     public function indexC()
     {
@@ -120,13 +143,6 @@ class Login extends BaseController
                 setcookie("role",$dataS["data"]["role"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", ".paylite.co.id");
                 setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", ".paylite.co.id");
-
-                setcookie("user_id",$dataS["data"]["user_id"],time() + (60 * 60 * 24),"/", "localhost:8080");
-                setcookie("username",$dataS["data"]["username"],time() + (60 * 60 * 24),"/", "localhost:8080");
-                setcookie("profile_id",$dataS["data"]["profile_id"],time() + (60 * 60 * 24),"/", "localhost:8080");
-                setcookie("role",$dataS["data"]["role"],time() + (60 * 60 * 24),"/", "localhost:8080");
-                setcookie("token",$dataS["data"]["token"],time() + (60 * 60 * 24),"/", "localhost:8080");
-                setcookie("statusProduk","prepareSubscriberRegister",time() + (60 * 60 * 24),"/", "localhost:8080");
                 
                 return $this->response->redirect('https://account.paylite.co.id/loginC');
             }
