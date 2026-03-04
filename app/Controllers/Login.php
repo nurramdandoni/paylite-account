@@ -57,6 +57,9 @@ class Login extends BaseController
         setcookie('statusProduk', '', time() - (60 * 60 * 24), '/', $cookieDomain);
         return true;
     }
+    public function mobileHandoff(){
+        return view('mobile_handoff');
+    }
     public function indexC()
     {
         if(isset($_COOKIE['user_id'])){
