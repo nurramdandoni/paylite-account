@@ -60,6 +60,37 @@ class Login extends BaseController
     public function mobileHandoff(){
         return view('mobile_handoff');
     }
+    public function mobileLoginToken(){
+        $tokenApps = $_GET['tokenApps'] ?? '';
+
+        if(!$tokenApps){
+            http_response_code(400);
+            exit("token kosong");
+        }
+        
+        /*
+        decode tokenApps
+        */
+        $decoded = base64_decode($tokenApps);
+        $data = json_decode($decoded, true);
+        
+        if(!$data){
+            http_response_code(400);
+            exit("token tidak valid");
+        }
+        
+        /*
+        set cookie
+        */
+        setcookie("user_id",$data["user_id"],time()+86400,"/",".paylite.co.id");
+        setcookie("username",$data["username"],time()+86400,"/",".paylite.co.id");
+        setcookie("profile_id",$data["profile_id"],time()+86400,"/",".paylite.co.id");
+        setcookie("role",$data["role"],time()+86400,"/",".paylite.co.id");
+        setcookie("token",$data["token"],time()+86400,"/",".paylite.co.id");
+        setcookie("statusProduk",$data["statusProduk"],time()+86400,"/",".paylite.co.id");
+        
+        return redirect()->to('/loginC');
+    }
     public function indexC()
     {
         if(isset($_COOKIE['user_id'])){
