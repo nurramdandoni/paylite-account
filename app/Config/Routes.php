@@ -33,6 +33,7 @@ $routes->get('/', 'Login::index');
 $routes->get('/login', 'Login::index');
 $routes->get('/loginC', 'Login::indexC');
 $routes->get('/mobileHandoff', 'Login::mobileHandoff');
+$routes->get('/api/mobile-login', 'Login::mobileLoginToken');
 $routes->get('/account', 'Login::index');
 $routes->get('/edu', 'Login::edu');
 $routes->get('/fin', 'Login::fin');
